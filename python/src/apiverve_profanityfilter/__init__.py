@@ -1,1 +1,3 @@
-from .apiClient import ProfanityfilterAPIClient
+from .apiClient import ProfanityfilterAPIClient, ProfanityfilterAPIClientError
+
+__all__ = ['ProfanityfilterAPIClient', 'ProfanityfilterAPIClientError']
