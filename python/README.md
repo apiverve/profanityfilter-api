@@ -44,7 +44,10 @@ from apiverve_profanityfilter.apiClient import ProfanityfilterAPIClient
 # Initialize the client with your APIVerve API key
 api = ProfanityfilterAPIClient("[YOUR_API_KEY]")
 
-query = { "text": "Today is so damn hot! Why the hell would anyone go outside?", "mask": "*" }
+query = {
+    "text": "Today is so damn hot! Why the hell would anyone go outside?",
+    "mask": "*"
+}
 
 try:
     # Make the API call
@@ -82,7 +85,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "text": "Today is so damn hot! Why the hell would anyone go outside?", "mask": "*" }
+query = {
+    "text": "Today is so damn hot! Why the hell would anyone go outside?",
+    "mask": "*"
+}
 ```
 
 ###### Simple Request
@@ -124,7 +130,10 @@ from apiverve_profanityfilter.apiClient import ProfanityfilterAPIClient, Profani
 
 api = ProfanityfilterAPIClient("[YOUR_API_KEY]")
 
-query = { "text": "Today is so damn hot! Why the hell would anyone go outside?", "mask": "*" }
+query = {
+    "text": "Today is so damn hot! Why the hell would anyone go outside?",
+    "mask": "*"
+}
 
 try:
     result = api.execute(query)
@@ -145,7 +154,10 @@ from apiverve_profanityfilter.apiClient import ProfanityfilterAPIClient, Profani
 
 api = ProfanityfilterAPIClient("[YOUR_API_KEY]")
 
-query = { "text": "Today is so damn hot! Why the hell would anyone go outside?", "mask": "*" }
+query = {
+    "text": "Today is so damn hot! Why the hell would anyone go outside?",
+    "mask": "*"
+}
 
 try:
     result = api.execute(query)
@@ -179,7 +191,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_profanityfilter.apiClient import ProfanityfilterAPIClient, ProfanityfilterAPIClientError
 
-query = { "text": "Today is so damn hot! Why the hell would anyone go outside?", "mask": "*" }
+query = {
+    "text": "Today is so damn hot! Why the hell would anyone go outside?",
+    "mask": "*"
+}
 
 # Using context manager ensures proper cleanup
 with ProfanityfilterAPIClient("[YOUR_API_KEY]") as api:
@@ -205,7 +220,10 @@ from apiverve_profanityfilter.apiClient import ProfanityfilterAPIClient
 # Enable debug mode
 api = ProfanityfilterAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "text": "Today is so damn hot! Why the hell would anyone go outside?", "mask": "*" }
+query = {
+    "text": "Today is so damn hot! Why the hell would anyone go outside?",
+    "mask": "*"
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -220,8 +238,12 @@ from apiverve_profanityfilter.apiClient import ProfanityfilterAPIClient
 
 api = ProfanityfilterAPIClient("[YOUR_API_KEY]")
 
+query = {
+    "text": "Today is so damn hot! Why the hell would anyone go outside?",
+    "mask": "*"
+}
+
 try:
-    query = { "text": "Today is so damn hot! Why the hell would anyone go outside?", "mask": "*" }
     result = api.execute(query)
     print(result)
 finally:
