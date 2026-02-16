@@ -26,7 +26,7 @@ Add the dependency:
 
 ```gradle
 dependencies {
-    implementation 'com.github.apiverve:profanityfilter-api:1.1.13'
+    implementation 'com.github.apiverve:profanityfilter-api:1.1.14'
 }
 ```
 
@@ -47,7 +47,7 @@ ProfanityFilterAPIClient client = new ProfanityFilterAPIClient("YOUR_API_KEY");
 try {
     // Prepare request parameters
     Map<String, Object> parameters = new HashMap<>();
-    parameters.put("text", "");
+    parameters.put("text", "Today is so damn hot! Why the hell would anyone go outside?");
     parameters.put("mask", "*");
 
     // Execute the request
