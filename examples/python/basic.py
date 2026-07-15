@@ -14,14 +14,21 @@ API_URL = 'https://api.apiverve.com/v1/profanityfilter'
 
 def call_profanityfilter_api():
     """
-    Make a GET request to the Profanity Filter API
+    Make a POST request to the Profanity Filter API
     """
     try:
+        # Request body
+        request_body &#x3D; {
+    &#x27;text&#x27;: &#x27;Today is so damn hot! Why the hell would anyone go outside?&#x27;,
+    &#x27;mask&#x27;: &#x27;*&#x27;
+}
+
         headers = {
-            'x-api-key': API_KEY
+            'x-api-key': API_KEY,
+            'Content-Type': 'application/json'
         }
 
-        response = requests.get(API_URL, headers=headers)
+        response = requests.post(API_URL, headers=headers, json=request_body)
 
         # Raise exception for HTTP errors
         response.raise_for_status()
