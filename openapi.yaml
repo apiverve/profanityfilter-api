@@ -2,8 +2,10 @@ openapi: 3.0.4
 info:
   title: Profanity Filter
   description: >-
-    Profanity Filter is a simple tool for filtering out profanity words from a
-    text. It returns the text with the profanity words replaced by placeholders.
+    Profanity Filter is a bad word filter API that scans text for offensive
+    language and masks detected swear words with a chosen replacement character.
+    It returns the sanitized text and a boolean flag indicating if profanity was
+    present.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -18,7 +20,7 @@ servers:
 paths:
   /v1/profanityfilter:
     post:
-      summary: Filter Profanity
+      summary: Profanity Filter
       description: Filter out profanity words from a body of text
       operationId: profanityfilter
       parameters: []
