@@ -1,7 +1,7 @@
 {
   "name": "@apiverve/profanityfilter",
-  "version": "1.2.0",
-  "description": "Profanity Filter is a simple tool for filtering out profanity words from a text. It returns the text with the profanity words replaced by placeholders.",
+  "version": "1.2.2",
+  "description": "Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present.",
   "main": "index.js",
   "types": "index.d.ts",
   "sideEffects": false,
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "profanity filter", "profanity filter api", "profanity filter tool", "profanity filter software", "profanity filter service"
+    "profanity filter api", "bad word filter api", "profanity check api", "profanity detection api", "profanity api"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/profanityfilter-api/issues"
   },
-  "homepage": "https://profanityfilter.apiverve.com?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/profanityfilter?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
