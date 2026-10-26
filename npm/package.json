@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/profanityfilter",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present.",
   "main": "index.js",
   "types": "index.d.ts",
