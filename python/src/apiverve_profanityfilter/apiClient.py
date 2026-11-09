@@ -25,7 +25,10 @@ class ProfanityfilterAPIClient:
     # Validation rules for parameters (generated from schema)
     VALIDATION_RULES = {
         "text": {"type": "string", "required": True},
-        "mask": {"type": "string", "required": False, "default": "*"}
+        "mask": {"type": "string", "required": False, "default": "*"},
+        "details": {"type": "boolean", "required": False, "default": False},
+        "allow": {"type": "string", "required": False},
+        "add": {"type": "string", "required": False}
     }
 
     # Format validation patterns

@@ -1,7 +1,7 @@
 Profanity Filter API
 ============
 
-Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present.
+Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present. Paid plans add the count of filtered words, each matched word with its position, and custom allow and block word lists.
 
 
 [![PyPI version](https://img.shields.io/pypi/v/apiverve-profanityfilter.svg)](https://pypi.org/project/apiverve-profanityfilter/)
@@ -45,7 +45,8 @@ api = ProfanityfilterAPIClient("[YOUR_API_KEY]")
 
 query = {
     "text": "Today is so damn hot! Why the hell would anyone go outside?",
-    "mask": "*"
+    "mask": "*",
+    "details": true
 }
 
 try:
@@ -86,7 +87,8 @@ Using the API client, you can perform requests to the API.
 ```python
 query = {
     "text": "Today is so damn hot! Why the hell would anyone go outside?",
-    "mask": "*"
+    "mask": "*",
+    "details": true
 }
 ```
 
@@ -111,7 +113,19 @@ print(result)
     "filteredText": "Today is so **** hot! Why the **** would anyone go outside?",
     "mask": "*",
     "trimmed": false,
-    "profaneWords": 2
+    "profaneWords": 2,
+    "matches": [
+      {
+        "word": "damn",
+        "start": 12,
+        "end": 16
+      },
+      {
+        "word": "hell",
+        "start": 30,
+        "end": 34
+      }
+    ]
   }
 }
 ```
@@ -131,7 +145,8 @@ api = ProfanityfilterAPIClient("[YOUR_API_KEY]")
 
 query = {
     "text": "Today is so damn hot! Why the hell would anyone go outside?",
-    "mask": "*"
+    "mask": "*",
+    "details": true
 }
 
 try:
@@ -155,7 +170,8 @@ api = ProfanityfilterAPIClient("[YOUR_API_KEY]")
 
 query = {
     "text": "Today is so damn hot! Why the hell would anyone go outside?",
-    "mask": "*"
+    "mask": "*",
+    "details": true
 }
 
 try:
@@ -192,7 +208,8 @@ from apiverve_profanityfilter.apiClient import ProfanityfilterAPIClient, Profani
 
 query = {
     "text": "Today is so damn hot! Why the hell would anyone go outside?",
-    "mask": "*"
+    "mask": "*",
+    "details": true
 }
 
 # Using context manager ensures proper cleanup
@@ -221,7 +238,8 @@ api = ProfanityfilterAPIClient("[YOUR_API_KEY]", debug=True)
 
 query = {
     "text": "Today is so damn hot! Why the hell would anyone go outside?",
-    "mask": "*"
+    "mask": "*",
+    "details": true
 }
 
 # Debug information will be printed to console
@@ -239,7 +257,8 @@ api = ProfanityfilterAPIClient("[YOUR_API_KEY]")
 
 query = {
     "text": "Today is so damn hot! Why the hell would anyone go outside?",
-    "mask": "*"
+    "mask": "*",
+    "details": true
 }
 
 try:
