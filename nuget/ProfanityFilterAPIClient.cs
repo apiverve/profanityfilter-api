@@ -68,7 +68,10 @@ namespace APIVerve.API.ProfanityFilter
         private static readonly Dictionary<string, ValidationRule> _validationRules = new Dictionary<string, ValidationRule>
         {
             { "text", new ValidationRule { Type = "string", Required = true } },
-            { "mask", new ValidationRule { Type = "string", Required = false } }
+            { "mask", new ValidationRule { Type = "string", Required = false } },
+            { "details", new ValidationRule { Type = "boolean", Required = false } },
+            { "allow", new ValidationRule { Type = "string", Required = false } },
+            { "add", new ValidationRule { Type = "string", Required = false } }
         };
 
         /// <summary>Format validation patterns</summary>

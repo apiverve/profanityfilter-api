@@ -46,6 +46,21 @@ namespace APIVerve.API.ProfanityFilter
 
         [JsonProperty("profaneWords")]
         public long? ProfaneWords { get; set; }
+
+        [JsonProperty("matches")]
+        public Match[] Matches { get; set; }
+    }
+
+    public partial class Match
+    {
+        [JsonProperty("word")]
+        public string Word { get; set; }
+
+        [JsonProperty("start")]
+        public long? Start { get; set; }
+
+        [JsonProperty("end")]
+        public long? End { get; set; }
     }
 
     public partial class Premium

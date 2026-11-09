@@ -21,5 +21,23 @@ namespace APIVerve.API.ProfanityFilter
         /// </summary>
         [JsonProperty("mask")]
         public string Mask { get; set; }
+
+        /// <summary>
+        /// Add a matches list with each filtered word and its start and end position
+        /// </summary>
+        [JsonProperty("details")]
+        public bool? Details { get; set; }
+
+        /// <summary>
+        /// Comma-separated words the filter should not flag, up to 100 single words (e.g. hell,damn)
+        /// </summary>
+        [JsonProperty("allow")]
+        public string Allow { get; set; }
+
+        /// <summary>
+        /// Comma-separated extra words to flag and mask, up to 100 single words
+        /// </summary>
+        [JsonProperty("add")]
+        public string Add { get; set; }
     }
 }

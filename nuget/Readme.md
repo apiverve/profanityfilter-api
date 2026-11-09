@@ -1,7 +1,7 @@
 Profanity Filter API
 ============
 
-Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present.
+Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present. Paid plans add the count of filtered words, each matched word with its position, and custom allow and block word lists.
 
 
 [![NuGet version](https://img.shields.io/nuget/v/APIVerve.API.ProfanityFilter.svg)](https://www.nuget.org/packages/APIVerve.API.ProfanityFilter)
@@ -61,7 +61,8 @@ class Program
 
         var queryOptions = new ProfanityFilterQueryOptions {
             Text = "Today is so damn hot! Why the hell would anyone go outside?",
-            Mask = "*"
+            Mask = "*",
+            Details = true
         };
 
         // Make the API call
@@ -126,7 +127,8 @@ public class Example
 
         var queryOptions = new ProfanityFilterQueryOptions {
             Text = "Today is so damn hot! Why the hell would anyone go outside?",
-            Mask = "*"
+            Mask = "*",
+            Details = true
         };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -159,7 +161,8 @@ public class Example
 
         var queryOptions = new ProfanityFilterQueryOptions {
             Text = "Today is so damn hot! Why the hell would anyone go outside?",
-            Mask = "*"
+            Mask = "*",
+            Details = true
         };
 
         var response = apiClient.Execute(queryOptions);
@@ -197,7 +200,8 @@ public class Example
 
         var queryOptions = new ProfanityFilterQueryOptions {
             Text = "Today is so damn hot! Why the hell would anyone go outside?",
-            Mask = "*"
+            Mask = "*",
+            Details = true
         };
 
         try
@@ -254,7 +258,8 @@ public class Example
 
         var queryOptions = new ProfanityFilterQueryOptions {
             Text = "Today is so damn hot! Why the hell would anyone go outside?",
-            Mask = "*"
+            Mask = "*",
+            Details = true
         };
 
         try
@@ -296,7 +301,8 @@ apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
 var queryOptions = new ProfanityFilterQueryOptions {
     Text = "Today is so damn hot! Why the hell would anyone go outside?",
-    Mask = "*"
+    Mask = "*",
+    Details = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -323,7 +329,8 @@ apiClient.SetLogger(message =>
 
 var queryOptions = new ProfanityFilterQueryOptions {
     Text = "Today is so damn hot! Why the hell would anyone go outside?",
-    Mask = "*"
+    Mask = "*",
+    Details = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -342,7 +349,8 @@ apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (defau
 
 var queryOptions = new ProfanityFilterQueryOptions {
     Text = "Today is so damn hot! Why the hell would anyone go outside?",
-    Mask = "*"
+    Mask = "*",
+    Details = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -355,7 +363,8 @@ The API client implements `IDisposable` for proper resource cleanup:
 ```csharp
 var queryOptions = new ProfanityFilterQueryOptions {
     Text = "Today is so damn hot! Why the hell would anyone go outside?",
-    Mask = "*"
+    Mask = "*",
+    Details = true
 };
 
 using (var apiClient = new ProfanityFilterAPIClient("[YOUR_API_KEY]"))
@@ -379,7 +388,19 @@ using (var apiClient = new ProfanityFilterAPIClient("[YOUR_API_KEY]"))
     "filteredText": "Today is so **** hot! Why the **** would anyone go outside?",
     "mask": "*",
     "trimmed": false,
-    "profaneWords": 2
+    "profaneWords": 2,
+    "matches": [
+      {
+        "word": "damn",
+        "start": 12,
+        "end": 16
+      },
+      {
+        "word": "hell",
+        "start": 30,
+        "end": 34
+      }
+    ]
   }
 }
 ```
