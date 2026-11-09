@@ -10,7 +10,7 @@ module APIVerve
     #
     # @example Basic usage
     #   client = APIVerve::Profanityfilter::Client.new(api_key: "your_api_key")
-    #   response = client.execute({ text: "Today is so damn hot! Why the hell would anyone go outside?", mask: "*" })
+    #   response = client.execute({ text: "Today is so damn hot! Why the hell would anyone go outside?", mask: "*", details: true })
     #   puts response
     #
     # @see https://apiverve.com/marketplace/profanityfilter?utm_source=ruby&utm_medium=referral&utm_content=readme
@@ -19,7 +19,7 @@ module APIVerve
       DEFAULT_TIMEOUT = 30
 
       # Validation rules for parameters
-      VALIDATION_RULES = { 'text' => { type: 'string', required: true }, 'mask' => { type: 'string', required: false } }
+      VALIDATION_RULES = { 'text' => { type: 'string', required: true }, 'mask' => { type: 'string', required: false }, 'details' => { type: 'boolean', required: false }, 'allow' => { type: 'string', required: false }, 'add' => { type: 'string', required: false } }
 
       # Format validation patterns
       FORMAT_PATTERNS = {
