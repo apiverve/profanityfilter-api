@@ -15,7 +15,7 @@ use APIVerve\Profanityfilter\Exceptions\ValidationException;
  * @example Basic usage
  * ```php
  * $client = new Client('your_api_key');
- * $response = $client->execute(['text' => 'Today is so damn hot! Why the hell would anyone go outside?', 'mask' => '*']);
+ * $response = $client->execute(['text' => 'Today is so damn hot! Why the hell would anyone go outside?', 'mask' => '*', 'details' => true]);
  * print_r($response);
  * ```
  *
@@ -35,7 +35,10 @@ class Client
      */
     private const VALIDATION_RULES = [
         'text' => ['type' => 'string', 'required' => true],
-        'mask' => ['type' => 'string', 'required' => false]
+        'mask' => ['type' => 'string', 'required' => false],
+        'details' => ['type' => 'boolean', 'required' => false],
+        'allow' => ['type' => 'string', 'required' => false],
+        'add' => ['type' => 'string', 'required' => false]
     ];
 
     /**

@@ -1,6 +1,6 @@
 # Profanity Filter API - PHP Package
 
-Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present.
+Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present. Paid plans add the count of filtered words, each matched word with its position, and custom allow and block word lists.
 
 ## Installation
 
@@ -29,7 +29,8 @@ $client = new Client('YOUR_API_KEY');
 // Make a request
 $response = $client->execute([
     'text' => 'Today is so damn hot! Why the hell would anyone go outside?',
-    'mask' => '*'
+    'mask' => '*',
+    'details' => true
 ]);
 
 // Print the response
@@ -45,7 +46,7 @@ use APIVerve\Profanityfilter\Exceptions\APIException;
 use APIVerve\Profanityfilter\Exceptions\ValidationException;
 
 try {
-    $response = $client->execute(['text' => 'Today is so damn hot! Why the hell would anyone go outside?', 'mask' => '*']);
+    $response = $client->execute(['text' => 'Today is so damn hot! Why the hell would anyone go outside?', 'mask' => '*', 'details' => true]);
     print_r($response['data']);
 } catch (ValidationException $e) {
     echo "Validation error: " . implode(', ', $e->getErrors());
@@ -76,7 +77,19 @@ $client = new Client(
     "filteredText": "Today is so **** hot! Why the **** would anyone go outside?",
     "mask": "*",
     "trimmed": false,
-    "profaneWords": 2
+    "profaneWords": 2,
+    "matches": [
+      {
+        "word": "damn",
+        "start": 12,
+        "end": 16
+      },
+      {
+        "word": "hell",
+        "start": 30,
+        "end": 34
+      }
+    ]
   }
 }
 ```
