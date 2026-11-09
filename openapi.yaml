@@ -5,7 +5,8 @@ info:
     Profanity Filter is a bad word filter API that scans text for offensive
     language and masks detected swear words with a chosen replacement character.
     It returns the sanitized text and a boolean flag indicating if profanity was
-    present.
+    present. Paid plans add the count of filtered words, each matched word with
+    its position, and custom allow and block word lists.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -21,7 +22,9 @@ paths:
   /v1/profanityfilter:
     post:
       summary: Profanity Filter
-      description: Filter out profanity words from a body of text
+      description: >-
+        Filter out profanity words from a body of text, optionally listing each
+        match and customizing the word list
       operationId: profanityfilter
       parameters: []
       responses:
@@ -50,6 +53,13 @@ paths:
                   mask: '*'
                   trimmed: false
                   profaneWords: 2
+                  matches:
+                    - word: damn
+                      start: 12
+                      end: 16
+                    - word: hell
+                      start: 30
+                      end: 34
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
@@ -71,6 +81,21 @@ paths:
                   description: >-
                     The mask to replace the profanity words with. Should be a
                     Single Character (e.g., *)
+                details:
+                  type: boolean
+                  description: >-
+                    Add a matches list with each filtered word and its start and
+                    end position
+                allow:
+                  type: string
+                  description: >-
+                    Comma-separated words the filter should not flag, up to 100
+                    single words (e.g. hell,damn)
+                add:
+                  type: string
+                  description: >-
+                    Comma-separated extra words to flag and mask, up to 100
+                    single words
               required:
                 - text
 components:
@@ -84,3 +109,4 @@ security:
 sampleRequest:
   text: Today is so damn hot! Why the hell would anyone go outside?
   mask: '*'
+  details: true

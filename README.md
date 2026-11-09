@@ -1,6 +1,6 @@
 # [Profanity Filter API](https://apiverve.com/marketplace/profanityfilter?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present.
+Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present. Paid plans add the count of filtered words, each matched word with its position, and custom allow and block word lists.
 
 The Profanity Filter API provides a simple, reliable way to integrate profanity filter functionality into your applications. Built for developers who need production-ready profanity filter capabilities without the complexity of building from scratch.
 
@@ -32,7 +32,8 @@ async function callProfanityFilterAPI() {
     try {
         const requestBody = {
     "text": "Today is so damn hot! Why the hell would anyone go outside?",
-    "mask": "*"
+    "mask": "*",
+    "details": true
 };
 
         const response = await fetch('https://api.apiverve.com/v1/profanityfilter', {
@@ -62,7 +63,8 @@ curl -X POST "https://api.apiverve.com/v1/profanityfilter" \
   -H "Content-Type: application/json" \
   -d '{
     "text": "Today is so damn hot! Why the hell would anyone go outside?",
-    "mask": "*"
+    "mask": "*",
+    "details": true
 }'
 ```
 
@@ -223,7 +225,19 @@ A real response from the Profanity Filter API:
     "filteredText": "Today is so **** hot! Why the **** would anyone go outside?",
     "mask": "*",
     "trimmed": false,
-    "profaneWords": 2
+    "profaneWords": 2,
+    "matches": [
+      {
+        "word": "damn",
+        "start": 12,
+        "end": 16
+      },
+      {
+        "word": "hell",
+        "start": 30,
+        "end": 34
+      }
+    ]
   }
 }
 ```

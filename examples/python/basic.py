@@ -20,7 +20,8 @@ def call_profanityfilter_api():
         # Request body
         request_body &#x3D; {
     &#x27;text&#x27;: &#x27;Today is so damn hot! Why the hell would anyone go outside?&#x27;,
-    &#x27;mask&#x27;: &#x27;*&#x27;
+    &#x27;mask&#x27;: &#x27;*&#x27;,
+    &#x27;details&#x27;: true
 }
 
         headers = {

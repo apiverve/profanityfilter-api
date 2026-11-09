@@ -16,7 +16,8 @@ async function callProfanityFilterAPI() {
     // Request body
     const requestBody &#x3D; {
     &quot;text&quot;: &quot;Today is so damn hot! Why the hell would anyone go outside?&quot;,
-    &quot;mask&quot;: &quot;*&quot;
+    &quot;mask&quot;: &quot;*&quot;,
+    &quot;details&quot;: true
 };
 
     const response = await fetch(API_URL, {

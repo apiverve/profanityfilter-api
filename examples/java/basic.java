@@ -16,6 +16,7 @@ public class BasicExample {
             Map&lt;String, Object&gt; parameters &#x3D; new HashMap&lt;&gt;();
         parameters.put(&quot;text&quot;, &quot;Today is so damn hot! Why the hell would anyone go outside?&quot;);
         parameters.put(&quot;mask&quot;, &quot;*&quot;);
+        parameters.put(&quot;details&quot;, true);
 
             // Execute the API request
             APIResponse response = client.execute(parameters);
