@@ -30,7 +30,7 @@ class profanityfilterWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/profanityfilter';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"text":{"type":"string","required":true},"mask":{"type":"string","required":false,"default":"*"}};
+        this.validationRules = {"text":{"type":"string","required":true},"mask":{"type":"string","required":false,"default":"*"},"details":{"type":"boolean","required":false,"default":false},"allow":{"type":"string","required":false},"add":{"type":"string","required":false}};
     }
 
     /**

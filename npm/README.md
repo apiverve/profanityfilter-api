@@ -1,6 +1,6 @@
 # Profanity Filter API
 
-Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present.
+Profanity Filter is a bad word filter API that scans text for offensive language and masks detected swear words with a chosen replacement character. It returns the sanitized text and a boolean flag indicating if profanity was present. Paid plans add the count of filtered words, each matched word with its position, and custom allow and block word lists.
 
 [![npm version](https://img.shields.io/npm/v/@apiverve/profanityfilter.svg)](https://www.npmjs.com/package/@apiverve/profanityfilter)
 
@@ -58,7 +58,8 @@ Using the API is simple. All you have to do is make a request. The API will retu
 ```javascript
 var query = {
   "text": "Today is so damn hot! Why the hell would anyone go outside?",
-  "mask": "*"
+  "mask": "*",
+  "details": true
 };
 
 api.execute(query, function (error, data) {
@@ -79,7 +80,8 @@ You can also use promises to make requests. The API returns a promise that you c
 ```javascript
 var query = {
   "text": "Today is so damn hot! Why the hell would anyone go outside?",
-  "mask": "*"
+  "mask": "*",
+  "details": true
 };
 
 api.execute(query)
@@ -101,7 +103,8 @@ You can also use async/await to make requests. The API returns a promise that yo
 async function makeRequest() {
     var query = {
   "text": "Today is so damn hot! Why the hell would anyone go outside?",
-  "mask": "*"
+  "mask": "*",
+  "details": true
 };
 
     try {
@@ -126,7 +129,19 @@ async function makeRequest() {
     "filteredText": "Today is so **** hot! Why the **** would anyone go outside?",
     "mask": "*",
     "trimmed": false,
-    "profaneWords": 2
+    "profaneWords": 2,
+    "matches": [
+      {
+        "word": "damn",
+        "start": 12,
+        "end": 16
+      },
+      {
+        "word": "hell",
+        "start": 30,
+        "end": 34
+      }
+    ]
   }
 }
 ```

@@ -16,7 +16,8 @@ const api = new profanityfilterAPI({
 // Example query
 var query = {
   "text": "Today is so damn hot! Why the hell would anyone go outside?",
-  "mask": "*"
+  "mask": "*",
+  "details": true
 };
 
 // Make the API request using callback

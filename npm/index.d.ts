@@ -30,6 +30,13 @@ declare module '@apiverve/profanityfilter' {
       mask:         null | string;
       trimmed:      boolean | null;
       profaneWords: number | null;
+      matches:      Match[];
+  }
+  
+  interface Match {
+      word:  null | string;
+      start: number | null;
+      end:   number | null;
   }
 
   export default class profanityfilterWrapper {
